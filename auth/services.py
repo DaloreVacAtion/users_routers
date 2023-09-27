@@ -52,14 +52,14 @@ class AuthService:
                 algorithms=[settings.JWT_ALGORITHM],
             )
         except JWTError:
-            raise exception from None
+            raise exception
 
         user_data = payload.get('user')
 
         try:
             user = UserRead.model_validate(user_data)
         except ValidationError:
-            raise exception from None
+            raise exception
 
         return user
 

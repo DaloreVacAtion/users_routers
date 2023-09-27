@@ -11,12 +11,11 @@ class UserCreate(BaseUser):
 
 
 class UserRead(BaseUser):
-    model_config = ConfigDict(from_attributes=True)
+    model_config = ConfigDict(
+        from_attributes=True,
+    )
 
     id: int
-
-    class Config:
-        orm_mode = True
 
 
 class Token(BaseModel):
